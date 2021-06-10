@@ -43,3 +43,4 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_role_arn"></a> [role\_arn](#output\_role\_arn) | Role ARN |
+| <a name="output_role_name"></a> [role\_name](#output\_role\_name) | Role name |
