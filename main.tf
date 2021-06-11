@@ -1,7 +1,9 @@
 /**
  * # terraform-aws-dlm-role
  *
- * Data Lifecycle Manager (DLM) role
+ * Data Lifecycle Manager (DLM) role.
+ *
+ * Provides typical role with policies based on https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html
  */
 
 data "aws_iam_policy_document" "assume_by_dlm" {
@@ -9,7 +11,7 @@ data "aws_iam_policy_document" "assume_by_dlm" {
   statement {
     effect = "Allow"
     principals {
-      type        = "AWS"
+      type        = "Service"
       identifiers = ["dlm.amazonaws.com"]
     }
     actions = ["sts:AssumeRole"]
