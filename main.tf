@@ -9,7 +9,7 @@ data "aws_iam_policy_document" "assume_by_dlm" {
   statement {
     effect = "Allow"
     principals {
-      type        = "AWS"
+      type        = "Service"
       identifiers = ["dlm.amazonaws.com"]
     }
     actions = ["sts:AssumeRole"]
