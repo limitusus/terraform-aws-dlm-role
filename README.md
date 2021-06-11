@@ -1,6 +1,8 @@
 # terraform-aws-dlm-role
 
-Data Lifecycle Manager (DLM) role
+Data Lifecycle Manager (DLM) role.
+
+Provides typical role with policies based on https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html
 
 ## Requirements
 
