@@ -26,16 +26,14 @@ resource "aws_iam_role" "this" {
   tags               = var.tags
 }
 
-resource "aws_iam_role_policy" "snapshot" {
-  count  = var.enable_snapshot_lifecycle ? 1 : 0
-  name   = "Snapshot"
-  role   = aws_iam_role.this.id
-  policy = data.aws_iam_policy_document.snapshot_lifecycle.json
+resource "aws_iam_role_policy_attachment" "snapshot" {
+  count      = var.enable_snapshot_lifecycle ? 1 : 0
+  role       = aws_iam_role.this.id
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSDataLifecycleManagerServiceRole"
 }
 
-resource "aws_iam_role_policy" "ami" {
-  count  = var.enable_ami_lifecycle ? 1 : 0
-  name   = "AMI"
-  role   = aws_iam_role.this.id
-  policy = data.aws_iam_policy_document.ami_lifecycle.json
+resource "aws_iam_role_policy_attachment" "ami" {
+  count      = var.enable_ami_lifecycle ? 1 : 0
+  role       = aws_iam_role.this.id
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSDataLifecycleManagerServiceRoleForAMIManagement"
 }
